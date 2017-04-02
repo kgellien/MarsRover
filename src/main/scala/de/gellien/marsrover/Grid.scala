@@ -22,3 +22,5 @@ class Grid(val maxX: Int, val maxY: Int) {
     p.copy(x = newX % maxX) // % maxX bleibt, damit es auch für übergroßes y funktioniert
   }
 }
+
+object Mars extends Grid(100, 100)

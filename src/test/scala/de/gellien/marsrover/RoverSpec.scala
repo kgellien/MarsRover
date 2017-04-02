@@ -17,4 +17,13 @@ class RoverSpec extends SpecificationWithJUnit {
       rover.direction must_== expectedDirection
     }
   }
+  "A Rover must be able to move one step at a time:" >> {
+    val start = Point(10, 10)
+    "forward moves one step into rover.direction" >> {
+      val rover = new Rover(start, N)
+      val expectedPosition = Point(10, 11)
+      rover.f
+      rover.position must_== expectedPosition
+    }
+  }
 }
