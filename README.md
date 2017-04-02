@@ -4,6 +4,12 @@ Koordinaten: Der Ursprung ist links unten. x wächst nach rechts, y nach oben. Zu
 Wird eine Grenze überschritten, so geht es am anderen Ende weiter, s.d. sich Grid wie ein Torus verhält.
 
 
+## Designentscheidungen
+
+Im ersten Wurf habe ich mich beim Rover für den OO-Ansatz entschieden, d.h. der Rover wird als Entity mit eigenem (mutable) State betrachtet.
+Immutability würde bedeuten, dass ich nach jeder Statusänderung ein neues Rover-Objekt zurückgeben würde.
+
+
 ## Testing
 
 Ich bin bei der Neuanlage des Projekts auf die neueste Version von specs2 gegangen. Unter SBT (sbt test) funktioniert alles wie erwartet; innerhalb von Eclipse lässt sich der Test aber nicht wie gewohnt als JUnit-Test starten. Aus Zeitgründen ignoriere ich dieses Problem vorläufig.
