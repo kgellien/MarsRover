@@ -31,4 +31,22 @@ class RoverSpec extends SpecificationWithJUnit {
       rover.position must_== expectedPosition
     }
   }
+  "A Rover must be able to accept a list of commands" >> {
+    "an empty command list does nothing" >> {
+      val rover = new Rover(start, N)
+      val expectedPosition = start
+      val expectedDirection = N
+      rover.commands(List())
+      rover.position must_== expectedPosition
+      rover.direction must_== expectedDirection
+    }
+    "a simple command list gives the expected result" >> {
+      val rover = new Rover(start, N)
+      val expectedPosition = start
+      val expectedDirection = S
+      rover.commands(List(f, f, l, b, r, b, b, r, r, r, f, l))
+      rover.position must_== expectedPosition
+      rover.direction must_== expectedDirection
+    }
+  }
 }

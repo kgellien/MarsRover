@@ -1,5 +1,11 @@
 package de.gellien.marsrover
 
+sealed trait Command
+case object f extends Command
+case object b extends Command
+case object l extends Command
+case object r extends Command
+
 class Rover(var position: Point, var direction: Direction) {
   def turnLeft = direction = direction match {
     case N => W
@@ -24,5 +30,11 @@ class Rover(var position: Point, var direction: Direction) {
     case E => Mars.west(position)
     case S => Mars.north(position)
     case W => Mars.east(position)
+  }
+  def commands(cmds: List[Command]) = for (cmd <- cmds) cmd match {
+    case `f` => forward
+    case `b` => back
+    case `l` => turnLeft
+    case `r` => turnRight
   }
 }
