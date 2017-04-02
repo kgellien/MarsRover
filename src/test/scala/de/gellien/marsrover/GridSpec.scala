@@ -26,5 +26,26 @@ class GridSpec extends SpecificationWithJUnit {
       val expectedPosition = Point(10, maxY - 1)
       grid.south(start) must_== expectedPosition
     }
+
+    "movement to the east should increment the x-coordinate only" >> {
+      val start = Point(10, 10)
+      val expectedPosition = Point(11, 10)
+      grid.east(start) must_== expectedPosition
+    }
+    "movement to the east wraps the x-coordinate when start has x == maxX-1" >> {
+      val start = Point(maxX - 1, 10)
+      val expectedPosition = Point(0, 10)
+      grid.east(start) must_== expectedPosition
+    }
+    "movement to the west should decrement the x-coordinate only" >> {
+      val start = Point(10, 10)
+      val expectedPosition = Point(9, 10)
+      grid.west(start) must_== expectedPosition
+    }
+    "movement to the west wraps the x-coordinate when start has x == 0" >> {
+      val start = Point(0, 10)
+      val expectedPosition = Point(maxX - 1, 10)
+      grid.west(start) must_== expectedPosition
+    }
   }
 }

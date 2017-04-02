@@ -9,6 +9,10 @@ class Grid(val maxX: Int, val maxY: Int) {
     while (newY < 0) newY = newY + maxY
     p.copy(y = newY % maxY) // % maxY bleibt, damit es auch für übergroßes y funktioniert
   }
-  def east(p: Point): Point = ???
-  def west(p: Point): Point = ???
+  def east(p: Point): Point = p.copy(x = (p.x + 1) % maxX)
+  def west(p: Point): Point = {
+    var newX = p.x - 1
+    while (newX < 0) newX = newX + maxX
+    p.copy(x = newX % maxX) // % maxX bleibt, damit es auch für übergroßes y funktioniert
+  }
 }
