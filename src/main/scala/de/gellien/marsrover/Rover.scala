@@ -6,26 +6,30 @@ case object b extends Command
 case object l extends Command
 case object r extends Command
 
-class Rover(var position: Point, var direction: Direction) {
-  def turnLeft = direction = direction match {
+class Rover(val startPosition: Point, val startDirection: Direction) {
+  private var pos = startPosition
+  private var dir = startDirection
+  def position = pos
+  def direction = dir
+  def turnLeft = dir = direction match {
     case N => W
     case E => N
     case S => E
     case W => S
   }
-  def turnRight = direction = direction match {
+  def turnRight = dir = direction match {
     case N => E
     case E => S
     case S => W
     case W => N
   }
-  def forward = position = direction match {
+  def forward = pos = direction match {
     case N => Mars.north(position)
     case E => Mars.east(position)
     case S => Mars.south(position)
     case W => Mars.west(position)
   }
-  def back = position = direction match {
+  def back = pos = direction match {
     case N => Mars.south(position)
     case E => Mars.west(position)
     case S => Mars.north(position)
