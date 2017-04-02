@@ -1,5 +1,11 @@
 package de.gellien.marsrover
 
+sealed trait Direction
+case object N extends Direction
+case object S extends Direction
+case object E extends Direction
+case object W extends Direction
+
 case class Point(x: Int, y: Int)
 
 class Grid(val maxX: Int, val maxY: Int) {
