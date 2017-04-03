@@ -10,8 +10,9 @@ Im ersten Wurf habe ich mich beim Rover für den OO-Ansatz entschieden, d.h. der 
 Immutability würde bedeuten, dass ich nach jeder Statusänderung ein neues Rover-Objekt zurückgeben würde.
 
 Es scheint natürlich, dass der Rover über seine Position Bescheid weiss.
-Die Aufgabenstellung suggeriert aber, dass das Grid *nicht* als Rover-Parameter vorgesehen ist. Deshalb habe ich hier im ersten Wurf den Rover (implizit) zu einem Mars-Rover spezialisiert, indem er intern ein spezifisches Grid-Object referenziert.
-Dies gefällt mir nicht, so dass ich wohl in einer der nächsten Iterationen Grid auch in den Konstruktor von Rover aufnehmen werde.
+Damit sollte der Rover auch wissen, auf welchem Grid er sich befindet.
+Daher ist das zu verwendende Grid als dritter Konstruktorparameter vorgesehen.
+Per Default ist es auf Mars gesetzt.
 
 
 ## Testing
